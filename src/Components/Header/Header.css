@@ -1,0 +1,29 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 80px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    display: none;
+}
+
+
+@media only screen and (max-width: 900px) {
+    header {
+        padding: 12px 50px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 20px;
+        position: absolute;
+        right: 30px;
+        top: 120%;
+        background-color: white;
+        padding: 20px;
+        display: block;
+    }
+}
