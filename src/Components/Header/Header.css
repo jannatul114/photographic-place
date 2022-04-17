@@ -2,12 +2,12 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 12px 80px;
+    position: relative;
 }
 
 nav {
     display: flex;
     gap: 20px;
-    display: none;
 }
 
 
@@ -24,6 +24,6 @@ nav {
         top: 120%;
         background-color: white;
         padding: 20px;
-        display: block;
+        transition: 0.9s;
     }
 }
