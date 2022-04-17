@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Footer from '../Footer/Footer';
-import SocialLinks from '../SocialLinks/SocialLinks';
+import Footer from '../../Shared/Footer/Footer';
+import SocialLogin from '../SocialLogin/SocialLogin';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
+import auth from '../../../firebase.init';
 import swal from 'sweetalert';
 
 const Registar = () => {
@@ -67,7 +67,7 @@ const Registar = () => {
                         <p className='text-center'>Already Registared? <Link className='text-indigo-500 font-semibold' to={'/login'}>Login</Link></p>
 
                         <footer>
-                            <SocialLinks></SocialLinks>
+                            <SocialLogin></SocialLogin>
                         </footer>
                     </form>
                 </div>

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import CustomLink from '../CustomLink/CustomLink';
+import CustomLink from './CustomLink/CustomLink';
 import './Header.css';
 import { MenuAlt1Icon, XIcon } from '@heroicons/react/solid'
 import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
+import auth from '../../../firebase.init';
 import { signOut } from 'firebase/auth';
 const Header = () => {
     const [menuDisplay, setMenuDisplay] = useState(false);

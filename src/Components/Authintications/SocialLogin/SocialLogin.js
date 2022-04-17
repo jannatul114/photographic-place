@@ -2,8 +2,8 @@ import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import auth from '../../firebase.init';
-import Loading from '../../Loading/Loading';
+import auth from '../../../firebase.init';
+import Loading from '../../Shared/Loading/Loading';
 
 const SocialLinks = () => {
     const navigate = useNavigate()

@@ -21,7 +21,7 @@ const Services = () => {
 
                 {
                     services.map(service =>
-                        <div class="w-full bg-white rounded-lg sahdow-lg overflow-hidden flex flex-col justify-center items-center border-2 border-indigo-500">
+                        <div class="w-full bg-indigo-100 rounded-lg sahdow-lg overflow-hidden flex flex-col justify-center items-center border-2 border-indigo-500">
                             <div className='mt-0'>
                                 <img class="m-0 object-center object-cover h-auto w-full" src={service?.img} alt="photo" />
                             </div>
@@ -29,7 +29,7 @@ const Services = () => {
                                 <p class="text-2xl text-gray-700 font-bold mb-2">{service?.name}</p>
                                 <p class="text-base text-gray-700 font-normal">{service?.description}</p>
                                 <p class="text-3xl font-bold text-gray-700 my-3">{service?.price}</p>
-                                <Link to={'/checkout'} className='py-2 px-3 border-indigo-500 border-2 font-bold rounded-sm my-3 text-indigo-500'>Explore <ArrowRightIcon width={'19px'} style={{ display: 'inline' }}></ArrowRightIcon> </Link>
+                                <Link to={'/checkout'} className='py-2 px-3 bg-white border-indigo-500 border-2 font-bold rounded-sm my-3 text-indigo-500'>Explore <ArrowRightIcon width={'19px'} style={{ display: 'inline' }}></ArrowRightIcon> </Link>
                             </div>
                         </div>)
                 }

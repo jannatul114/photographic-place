@@ -4,15 +4,13 @@ import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import auth from '../../firebase.init';
-import Loading from '../../Loading/Loading';
-import Footer from '../Footer/Footer';
-import SocialLinks from '../SocialLinks/SocialLinks';
+import auth from '../../../firebase.init';
+import Loading from '../../Shared/Loading/Loading';
+import Footer from '../../Shared/Footer/Footer';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
-    const [sendPasswordResetEmail, sending, error1] = useSendPasswordResetEmail(
-        auth
-    );
+    const [sendPasswordResetEmail, sending, error1] = useSendPasswordResetEmail(auth);
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const location = useLocation();
@@ -99,7 +97,7 @@ const Login = () => {
                         <p className='text-center'>Don't have any account? <Link to={'/registar'} className='text-indigo-500 font-semibold'>Create Account</Link></p>
 
                         <footer>
-                            <SocialLinks></SocialLinks>
+                            <SocialLogin></SocialLogin>
                         </footer>
                     </form>
                 </div>

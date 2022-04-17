@@ -1,15 +1,15 @@
 
 import './App.css';
-import Header from './Components/Header/Header';
+import Header from './Components/Pages/Header/Header';
 import { Route, Routes } from 'react-router-dom';
-import Home from './Components/Home/Home';
-import Login from './Components/Login/Login';
-import Registar from './Components/Registar/Registar';
-import NotFound from './Components/NotFound/NotFound';
-import Checkout from './Components/Checkout/Checkout';
-import RequireAuth from './Components/RequreAuth/RequreAuth';
-import AboutMe from './Components/AboutMe/AboutMe';
-import Blogs from './Components/Blogs/Blogs';
+import Home from './Components/Pages/HomePage/Home/Home';
+import Login from './Components/Authintications/Login/Login';
+import Registar from './Components/Authintications/Registar/Registar';
+import NotFound from './Components/Pages/NotFound/NotFound';
+import Checkout from './Components/Pages/Checkout/Checkout';
+import RequireAuth from './Components/Authintications/RequreAuth/RequreAuth';
+import AboutMe from './Components/Pages/AboutMe/AboutMe';
+import Blogs from './Components/Pages/Blogs/Blogs';
 
 function App() {
   return (
