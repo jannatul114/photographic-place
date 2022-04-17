@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { async } from '@firebase/util';
+import React, { useEffect, useRef } from 'react';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,6 +10,11 @@ import Footer from '../Footer/Footer';
 import SocialLinks from '../SocialLinks/SocialLinks';
 
 const Login = () => {
+    const [sendPasswordResetEmail, sending, error1] = useSendPasswordResetEmail(
+        auth
+    );
+    const emailRef = useRef('');
+    const passwordRef = useRef('');
     const location = useLocation();
     const navigate = useNavigate();
     let from = location.state?.from?.pathname || "/";
@@ -16,15 +22,15 @@ const Login = () => {
         signInWithEmailAndPassword,
         user,
         loading,
-        error,
+        error
     ] = useSignInWithEmailAndPassword(auth);
-    if (loading) {
+    if (loading || sending) {
         <Loading></Loading>
     }
     useEffect(() => {
         if (error) {
             console.log(error.message);
-            toast(error.message)
+            toast(error?.message)
         }
     }, [error])
 
@@ -35,10 +41,22 @@ const Login = () => {
 
     const handleLogin = event => {
         event.preventDefault();
-        const email = event.target.email.value;
-        const password = event.target.password.value;
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
         signInWithEmailAndPassword(email, password);
     }
+
+    const handlechangePassword = async () => {
+        const email = emailRef.current.value;
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('email sent')
+        }
+        else {
+            toast('please enter your email')
+        }
+    }
+
     return (
         <div>
             <main className="relative min-h-screen w-full bg-white">
@@ -53,6 +71,7 @@ const Login = () => {
                                 <input
                                     type="email"
                                     name='email'
+                                    ref={emailRef}
                                     placeholder="Email"
                                     className="my-3 w-full border-none bg-transparent outline-none focus:outline-none"
                                 />
@@ -63,6 +82,7 @@ const Login = () => {
                                 <input
                                     type="password"
                                     name='password'
+                                    ref={passwordRef}
                                     placeholder="Password"
                                     className="fos:outline-none my-3 w-full border-none bg-transparent outline-none" required
                                 />
@@ -75,6 +95,7 @@ const Login = () => {
                             <div className="font-semibold text-gray-400">OR</div>
                             <hr className="w-full border border-gray-300" />
                         </div>
+                        <p className='text-center'>forget password? <button onClick={handlechangePassword} className='text-indigo-500 font-semibold'>Reset</button></p>
                         <p className='text-center'>Don't have any account? <Link to={'/registar'} className='text-indigo-500 font-semibold'>Create Account</Link></p>
 
                         <footer>

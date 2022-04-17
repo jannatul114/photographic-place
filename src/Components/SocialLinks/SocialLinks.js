@@ -20,15 +20,10 @@ const SocialLinks = () => {
     }
     return (
         <div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="flex justify-center">
                 <button onClick={() => signInWithGoogle()}
                     className="rounded-2xl border-b-2 border-b-gray-300 bg-white py-2.5 px-4 font-bold text-indigo-700 ring-2 ring-gray-300 hover:bg-gray-200 active:translate-y-[0.125rem] active:border-b-gray-200"
                 >Google</button>
-
-                <button onClick={() => signInWithGoogle()}
-                    className="rounded-2xl border-b-2 border-b-gray-300 bg-white py-2.5 px-4 font-bold text-indigo-700 ring-2 ring-gray-300 hover:bg-gray-200 active:translate-y-[0.125rem] active:border-b-gray-200"
-                >Github</button>
-
             </div>
         </div>
     );
