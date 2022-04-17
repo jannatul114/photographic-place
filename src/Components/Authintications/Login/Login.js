@@ -57,8 +57,8 @@ const Login = () => {
 
     return (
         <div>
-            <main className="relative min-h-screen w-full bg-white">
-                <div className="p-6" x-data="app">
+            <main className=" min-h-screen w-full bg-white">
+                <div className="p-6">
                     <ToastContainer />
                     <form onSubmit={handleLogin}
                         className="absolute top-1/2 left-1/2 mx-auto max-w-sm -translate-x-1/2 -translate-y-1/2 transform space-y-4 text-center"
@@ -93,15 +93,17 @@ const Login = () => {
                             <div className="font-semibold text-gray-400">OR</div>
                             <hr className="w-full border border-gray-300" />
                         </div>
+                        <SocialLogin></SocialLogin>
                         <p className='text-center'>forget password? <button onClick={handlechangePassword} className='text-indigo-500 font-semibold'>Reset</button></p>
                         <p className='text-center'>Don't have any account? <Link to={'/registar'} className='text-indigo-500 font-semibold'>Create Account</Link></p>
 
-                        <footer>
-                            <SocialLogin></SocialLogin>
-                        </footer>
+
                     </form>
+
                 </div>
+
             </main>
+
 
             <Footer></Footer>
         </div>
