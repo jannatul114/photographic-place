@@ -1,0 +1,23 @@
+.title-text {
+    font-size: 55px;
+    font-weight: 600;
+}
+
+.name-text {
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.about {
+    position: relative;
+
+}
+
+.parent {}
+
+@media only screen and (max-width: 900px) {
+    .about {
+        flex-direction: column;
+        margin: 30px;
+    }
+}

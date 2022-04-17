@@ -16,7 +16,9 @@ const Header = () => {
             <h2 className='text-2xl font-semibold'><span className='text-3xl font-bold text-indigo-500 '>P</span>hotoGraphic <span className='text-3xl font-bold text-indigo-500 '>P</span>lace</h2>
             {menuDisplay && <nav>
                 <CustomLink to={'/'}>Home</CustomLink>
-                <CustomLink to={'/banner'}>Blog</CustomLink>
+                <CustomLink to={'/blogs'}>Blog</CustomLink>
+                <CustomLink to={'/aboutme'}>About Me</CustomLink>
+
                 {
                     !user ? <CustomLink to={'/login'}>Login</CustomLink> : <button onClick={handleSignOut} className=' px-3 rounded-xl border-2 border-indigo-500'>Signout</button>
                 }
