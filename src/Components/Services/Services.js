@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { ArrowRightIcon } from '@heroicons/react/solid';
+import { Link } from 'react-router-dom';
 const Services = () => {
     const [services, setServices] = useState([]);
     useEffect(() => {
@@ -28,7 +29,7 @@ const Services = () => {
                                 <p class="text-2xl text-gray-700 font-bold mb-2">{service?.name}</p>
                                 <p class="text-base text-gray-700 font-normal">{service?.description}</p>
                                 <p class="text-3xl font-bold text-gray-700 my-3">{service?.price}</p>
-                                <button className='py-2 px-3 border-indigo-500 border-2 font-bold rounded-sm my-3 text-indigo-500'>Explore <ArrowRightIcon width={'19px'} style={{ display: 'inline' }}></ArrowRightIcon> </button>
+                                <Link to={'/checkout'} className='py-2 px-3 border-indigo-500 border-2 font-bold rounded-sm my-3 text-indigo-500'>Explore <ArrowRightIcon width={'19px'} style={{ display: 'inline' }}></ArrowRightIcon> </Link>
                             </div>
                         </div>)
                 }
