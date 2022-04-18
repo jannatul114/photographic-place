@@ -18,13 +18,11 @@ const Header = () => {
                 <CustomLink to={'/'}>Home</CustomLink>
                 <CustomLink to={'/blogs'}>Blog</CustomLink>
                 <CustomLink to={'/aboutme'}>About Me</CustomLink>
-
                 {
                     !user ? <CustomLink to={'/login'}>Login</CustomLink> : <button onClick={handleSignOut} className=' px-3 rounded-xl border-2 border-indigo-500'>Signout</button>
                 }
                 <CustomLink to={'/registar'}>Registar</CustomLink>
             </nav>
-
             }
             <button onClick={() => setMenuDisplay(!menuDisplay)}>
                 {menuDisplay ?
@@ -33,7 +31,6 @@ const Header = () => {
                     <MenuAlt1Icon width={30} />
                 }
             </button>
-
         </header>
     );
 };

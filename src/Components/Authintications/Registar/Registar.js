@@ -5,6 +5,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import swal from 'sweetalert';
+import { async } from '@firebase/util';
 
 const Registar = () => {
     const navigate = useNavigate();
@@ -14,10 +15,11 @@ const Registar = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-    const handleCreateUser = (event) => {
+    const handleCreateUser = async (event) => {
+        event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value
-        createUserWithEmailAndPassword(email, password);
+        await createUserWithEmailAndPassword(email, password);
         swal("Varification email sent!", "success");
         navigate('/home')
     }
