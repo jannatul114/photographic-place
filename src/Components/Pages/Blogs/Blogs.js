@@ -1,6 +1,7 @@
 import React from 'react';
 import './Blogs.css';
 import faq from '../../../images/FAQs.gif';
+import Footer from '../../Shared/Footer/Footer';
 const Blogs = () => {
     return (
         <div class="h-screen">
@@ -38,6 +39,7 @@ const Blogs = () => {
                     </div>
                 </div>
             </div>
+            <Footer></Footer>
 
         </div>
 

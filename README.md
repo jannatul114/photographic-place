@@ -1,6 +1,6 @@
 # Photographic place
 
-live website: [https://photographic-place.netlify.app/](https://photographic-place.netlify.app/).
+live website: [https://photographic-place.web.app/](https://photographic-place.web.app/).
 
 ## In this project I used:
 * Tailwind
