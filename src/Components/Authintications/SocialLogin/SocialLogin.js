@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -10,15 +10,18 @@ const SocialLinks = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
-    if (error) {
-        toast(error?.message)
-    }
-    if (loading) {
-        <Loading></Loading>
-    }
-    if (user) {
-        navigate(from, { replace: true })
-    }
+
+    useEffect(() => {
+        if (error) {
+            toast(error?.message)
+        }
+    }, [error])
+
+    useEffect(() => {
+        if (user) {
+            navigate(from, { replace: true })
+        }
+    }, [user])
     return (
         <div>
             <div className="flex justify-center">

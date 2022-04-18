@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../../Shared/Footer/Footer';
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -6,6 +6,7 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import swal from 'sweetalert';
 import { async } from '@firebase/util';
+import { toast } from 'react-toastify';
 
 const Registar = () => {
     const navigate = useNavigate();
@@ -15,13 +16,21 @@ const Registar = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    //if error found, it will shown in ui by toast
+    useEffect(() => {
+        if (error) {
+            toast(error?.message);
+        }
+    }, [error])
+    if (user) {
+        navigate('/home')
+    }
     const handleCreateUser = async (event) => {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value
         await createUserWithEmailAndPassword(email, password);
         swal("Varification email sent!", "success");
-        navigate('/home')
     }
 
     return (
