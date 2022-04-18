@@ -22,8 +22,9 @@ nav {
         position: absolute;
         right: 30px;
         top: 120%;
-        background-color: white;
+        background-color: rgb(228, 184, 230);
         padding: 20px;
         transition: 0.9s;
+        z-index: 1;
     }
 }
