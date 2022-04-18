@@ -26,9 +26,9 @@ const Banner = () => {
                         </div>
                     </div>
                     <div className="hidden  lg:block lg:w-1/2" >
-                        <div style={{ clipPath: "polygon(10% 0, 100% 0%, 100% 100%, 0 100%)" }} className='flex justify-center'>
+                        <div style={{ clipPath: "polygon(10% 0, 100% 0%, 100% 100%, 0 100%)" }} className='flex justify-center '>
 
-                            <img className='w-full h-full object-cover' src="https://images.news18.com/ibnlive/uploads/2021/08/photography-16293101963x2.jpg" alt="" />
+                            <img className='w-full h-full object-cover ' src="https://images.news18.com/ibnlive/uploads/2021/08/photography-16293101963x2.jpg" alt="" />
 
                         </div>
                     </div>

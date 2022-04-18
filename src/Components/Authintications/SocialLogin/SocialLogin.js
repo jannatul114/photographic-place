@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
@@ -8,7 +8,8 @@ import Loading from '../../Shared/Loading/Loading';
 const SocialLinks = () => {
     const navigate = useNavigate()
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-    console.log(error);
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
     if (error) {
         toast(error?.message)
     }
@@ -16,7 +17,7 @@ const SocialLinks = () => {
         <Loading></Loading>
     }
     if (user) {
-        navigate('/home')
+        navigate(from, { replace: true })
     }
     return (
         <div>
